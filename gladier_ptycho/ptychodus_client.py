@@ -61,18 +61,16 @@ if __name__ == '__main__':
             'from_storage_transfer_destination_path': str(data_dir),
             'from_storage_transfer_recursive': True,
 
-
             # funcX endpoints
             'funcx_endpoint_non_compute': 'e449e8b8-e114-4659-99af-a7de06feb847',
             'funcx_endpoint_compute': "a93b6438-6ff7-422e-a1a2-9a4c6d9c1ea5",
-
 
             'upload_dir':'/eagle/APSDataAnalysis/PTYCHO/portal/'+sample_name,
             'search_index': '93e343cc-b555-4d60-9aab-80ff191a8abb',
             'search_project': 'ptycho',
             'source_globus_endpoint': "80150e2e-5e88-4d35-b3cd-170b25b60538",
             'groups': [],
-            'pilot':{} #this seem to be a bug on the autogeneration
+            'pilot':{} # this seem to be a bug on the autogeneration
         }
     }
 
