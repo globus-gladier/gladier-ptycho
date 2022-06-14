@@ -12,8 +12,8 @@ def ptychodus_fix_ini(**data):
     os.chdir(proc_dir) 
 
     template_data = {
-        'file_path': proc_dir+'fly001_master.h5',
-        'pos_file': proc_dir+'fly001_pos.csv',
+        'file_path': proc_dir+'/fly001_master.h5',
+        'pos_file': proc_dir+'/fly001_pos.csv',
         'n_thread': 16,
     }
 
