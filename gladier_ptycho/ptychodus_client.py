@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
             'upload_dir':'/eagle/APSDataAnalysis/PTYCHO/portal/'+sample_name,
             'search_index': '93e343cc-b555-4d60-9aab-80ff191a8abb',
-            'search_project': 'ptycho',
+            'search_project': 'ptychography',
             'source_globus_endpoint': "80150e2e-5e88-4d35-b3cd-170b25b60538",
             'groups': [],
             'pilot':{} #this seem to be a bug on the autogeneration
