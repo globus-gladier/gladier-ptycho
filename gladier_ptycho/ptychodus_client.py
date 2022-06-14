@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # Experiment paths
     local_dir = args.localdir
 
-    sample_name = 'test_raf21'
+    sample_name = 'test_ryan1'
 
     data_dir = os.path.join(args.datadir,sample_name)
     # Base input for the flow
@@ -67,16 +67,16 @@ if __name__ == '__main__':
             'funcx_endpoint_non_compute': 'e449e8b8-e114-4659-99af-a7de06feb847',
             'funcx_endpoint_compute': "a93b6438-6ff7-422e-a1a2-9a4c6d9c1ea5",
 
-            'upload_dir':'/eagle/APSDataAnalysis/PTYCHO/portal/'+sample_name,
+            'upload_dir': '/eagle/APSDataAnalysis/PTYCHO/'+data_dir, #relative to funcx
             'search_index': '93e343cc-b555-4d60-9aab-80ff191a8abb',
             'search_project': 'ptychography',
-            'source_globus_endpoint': "80150e2e-5e88-4d35-b3cd-170b25b60538",
+            'source_globus_endpoint': '08925f04-569f-11e7-bef8-22000b9a448b',
             'groups': [],
             'pilot':{} # this seem to be a bug on the autogeneration
         }
     }
 
-    if False:
+    if True:
         flow_input['input']['funcx_endpoint_compute'] = '462d7ec0-ecbd-4ebb-bc67-3cafa8e1e6d0'
         flow_input['input']['funcx_endpoint_non_compute'] = '6c4323f4-a062-4551-a883-146a352a43f5'
 
