@@ -17,7 +17,8 @@ def plot_ptychodus(**data):
     data_object = data['object']
     pixel_size = data['pixelSizeInMeters']
 
-    plt.imsave('object.jpg', data_object)
+    plt.imsave('object_real.jpg', data_object.real)
+    plt.imsave('object_im.jpg', data_object.imag)
 
 
     data['pilot']['dataset'] = data['upload_dir']
