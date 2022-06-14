@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # Experiment paths
     local_dir = args.localdir
 
-    sample_name = 'test_ryan1'
+    sample_name = 'test_raf21'
 
     data_dir = os.path.join(args.datadir,sample_name)
     # Base input for the flow
