@@ -9,6 +9,7 @@ import os
 
 from gladier import  GladierBaseClient, generate_flow_definition
 
+from tools.ptychodus_fix_ini import PtychodusFixIni
 from tools.ptychodus_exec import PtychodusExec
 from tools.ptychodus_plot import PtychodusPlot
 
@@ -18,10 +19,11 @@ from tools.ptychodus_plot import PtychodusPlot
 class PtychodusFlow(GladierBaseClient):
     gladier_tools = [
         'gladier_tools.globus.transfer.Transfer:FromStorage',
-      PtychodusExec,
-#        'gladier_tools.globus.transfer.Transfer:DataBack',
-       PtychodusPlot,
-       'gladier_tools.publish.Publish'
+        PtychodusFixIni,
+        PtychodusExec,
+        #'gladier_tools.globus.transfer.Transfer:DataBack',
+        PtychodusPlot,
+        'gladier_tools.publish.Publish'
     ]
     
 
