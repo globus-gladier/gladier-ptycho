@@ -8,6 +8,7 @@ import os
 
 from gladier import  GladierBaseClient, generate_flow_definition
 
+from tools.ptychodus_fix_ini import PtychodusFixIni
 from tools.ptychodus_exec import PtychodusExec
 from tools.ptychodus_plot import PtychodusPlot
 
@@ -17,10 +18,11 @@ from tools.ptychodus_plot import PtychodusPlot
 class PtychodusFlow(GladierBaseClient):
     gladier_tools = [
         'gladier_tools.globus.transfer.Transfer:FromStorage',
-      PtychodusExec,
-#        'gladier_tools.globus.transfer.Transfer:DataBack',
-       PtychodusPlot,
-       'gladier_tools.publish.Publish'
+        PtychodusFixIni,
+        PtychodusExec,
+        #'gladier_tools.globus.transfer.Transfer:DataBack',
+        PtychodusPlot,
+        'gladier_tools.publish.Publish'
     ]
 
 
@@ -40,7 +42,7 @@ if __name__ == '__main__':
     # Experiment paths
     local_dir = args.localdir
 
-    sample_name = 'test_ryan1'
+    sample_name = 'test_raf21'
 
     data_dir = os.path.join(args.datadir,sample_name)
     # Base input for the flow
@@ -74,7 +76,7 @@ if __name__ == '__main__':
         }
     }
 
-    if True:
+    if False:
         flow_input['input']['funcx_endpoint_compute'] = '462d7ec0-ecbd-4ebb-bc67-3cafa8e1e6d0'
         flow_input['input']['funcx_endpoint_non_compute'] = '6c4323f4-a062-4551-a883-146a352a43f5'
 
