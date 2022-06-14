@@ -78,7 +78,7 @@ if __name__ == '__main__':
         }
     }
 
-    if True:
+    if False:
         flow_input['input']['funcx_endpoint_compute'] = '462d7ec0-ecbd-4ebb-bc67-3cafa8e1e6d0'
         flow_input['input']['funcx_endpoint_non_compute'] = '6c4323f4-a062-4551-a883-146a352a43f5'
 

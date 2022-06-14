@@ -2,7 +2,7 @@ from gladier import GladierBaseTool, generate_flow_definition
 
 def ptychodus_fix_ini(**data):
     import os
-    import subprocess
+    from string import Template
 
     data_dir = data['data_dir']
     proc_dir = data['proc_dir']
