@@ -38,7 +38,7 @@ def ptychodus_plot(**data):
     metadata = {}
     metadata.update({
         'sample_name': data['sample_name'],
-        'pixel_size': pixel_size
+#        'pixel_size': pixel_size
     })
     data['pilot']['metadata'] = metadata
 
