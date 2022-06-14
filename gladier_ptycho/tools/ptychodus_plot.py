@@ -1,6 +1,6 @@
 from gladier import GladierBaseTool, generate_flow_definition
 
-def plot_ptychodus(**data):
+def ptychodus_plot(**data):
     import os
     import subprocess
     import numpy as np
@@ -12,13 +12,21 @@ def plot_ptychodus(**data):
 
     os.chdir(proc_dir) 
 
-    data = np.load(npz_file)
-    data_probe = data['probe']
-    data_object = data['object']
-    pixel_size = data['pixelSizeInMeters']
+    raw_data = np.load(npz_file)
+    data_object = raw_data['object']
+    data_probe = raw_data['probe']
+    pixel_size = raw_data['pixelSizeInMeters']
 
     plt.imsave('object_real.jpg', data_object.real)
     plt.imsave('object_im.jpg', data_object.imag)
+
+    plt.imsave('probe_0_real.jpg', data_probe[0,:,:].real)
+    plt.imsave('probe_0_im.jpg', data_probe[0,:,:].imag)
+    # plt.imsave('probe_1.jpg', data_probe[1,:,:])
+    # plt.imsave('probe_2.jpg', data_probe[2,:,:])
+    # plt.imsave('probe_3.jpg', data_probe[3,:,:])
+    # plt.imsave('probe_4.jpg', data_probe[4,:,:])
+
 
 
     data['pilot']['dataset'] = data['upload_dir']
@@ -27,12 +35,10 @@ def plot_ptychodus(**data):
     data['pilot']['source_globus_endpoint'] = data['source_globus_endpoint'] ##Review this later
     data['pilot']['groups'] = data.get('groups',[])
 
-    # Update any metadata in the pilot 'metadata' key
-    metadata = data['pilot'].get('metadata', {})
-    metadata.update(beamline_metadata)
+    metadata = {}
     metadata.update({
         'sample_name': data['sample_name'],
-        'pixel_size': pixel_size
+#        'pixel_size': pixel_size
     })
     data['pilot']['metadata'] = metadata
 
@@ -42,7 +48,7 @@ def plot_ptychodus(**data):
 
 
 @generate_flow_definition(modifiers={
-    'plot_ptychodus': {'WaitTime':7200}
+    'ptychodus_plot': {'WaitTime':7200}
 })
 class PtychodusPlot(GladierBaseTool):
     flow_input = {}
@@ -50,4 +56,4 @@ class PtychodusPlot(GladierBaseTool):
         'proc_dir',
         'funcx_endpoint_compute',
     ]
-    funcx_functions = [plot_ptychodus]
+    funcx_functions = [ptychodus_plot]
