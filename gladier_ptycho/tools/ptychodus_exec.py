@@ -6,14 +6,14 @@ def ptychodus_exec(**data):
 
     data_dir = data['data_dir']
     proc_dir = data['proc_dir']
-
-    ini_name = f"{proc_dir}/ptychodus.ini"
-
+    ini_name = data.get('ini_file', 'ptychodus.ini')
     timeout = data.get('timeout', 1200)
+
+    os.chdir(proc_dir)
 
     logname = 'log-ptychodus.txt'
 
-    cmd = f'timeout {timeout} ptychodus -b -s  {ini_name}  > {logname}'
+    cmd = f'timeout {timeout} ptychodus -b -s {ini_name} > {logname} 2>&1'
 
     os.chdir(proc_dir) 
 
