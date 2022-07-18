@@ -8,7 +8,7 @@ import os
 
 from gladier import GladierBaseClient, generate_flow_definition
 
-from ptychodus_plot import PtychodusPlot
+from tools.ptychodus_plot import PtychodusPlot
 
 @generate_flow_definition(
     modifiers={
